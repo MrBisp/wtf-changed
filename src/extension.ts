@@ -106,7 +106,7 @@ async function getFileDiff(cwd: string, base: string, compare: string, filePath:
   if (includeWorkingTree) {
     // Diff base against working tree directly; compare side = file on disk
     [rawDiff, baseContent, compareContent] = await Promise.all([
-      exec(`git diff "${base}" -- "${filePath}"`, cwd).catch(() => ""),
+      exec(`git diff --ignore-all-space "${base}" -- "${filePath}"`, cwd).catch(() => ""),
       getFileContent(cwd, base, filePath),
       Promise.resolve(readWorkingTreeFile(cwd, filePath)),
     ]);
@@ -118,7 +118,7 @@ async function getFileDiff(cwd: string, base: string, compare: string, filePath:
     }
   } else {
     [rawDiff, baseContent, compareContent] = await Promise.all([
-      exec(`git diff "${base}".."${compare}" -- "${filePath}"`, cwd).catch(() => ""),
+      exec(`git diff --ignore-all-space "${base}".."${compare}" -- "${filePath}"`, cwd).catch(() => ""),
       getFileContent(cwd, base, filePath),
       getFileContent(cwd, compare, filePath),
     ]);
