@@ -1,0 +1,52 @@
+{
+  "name": "wtf-changed",
+  "displayName": "WTF Changed",
+  "description": "Side-by-side and inline diff viewer for comparing any two git branches — with working-tree support.",
+  "version": "0.2.1",
+  "publisher": "frbi",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["SCM Providers", "Other"],
+  "keywords": ["git", "branch", "diff", "compare", "side-by-side", "review", "wtf"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "wtfChanged.open",
+        "title": "WTF Changed: Compare Branches"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "wtfChanged",
+          "title": "WTF Changed",
+          "icon": "media/activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "wtfChanged": [
+        {
+          "id": "wtfChanged.launcher",
+          "name": "WTF Changed"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "pnpm vsce package --no-dependencies",
+    "vscode:prepublish": "pnpm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.4.0"
+  }
+}
