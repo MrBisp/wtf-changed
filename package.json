@@ -2,7 +2,7 @@
   "name": "wtf-changed",
   "displayName": "WTF Changed",
   "description": "Side-by-side and inline diff viewer for comparing any two git branches — with working-tree support.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "frbi",
   "repository": { "type": "git", "url": "https://github.com/MrBisp/wtf-changed.git" },
   "icon": "icon.png",
